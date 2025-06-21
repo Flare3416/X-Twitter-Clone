@@ -1,120 +1,466 @@
-<!doctype html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="src/output.css" rel="stylesheet">
+    <title>Twitter-like Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Hide scrollbar for webkit browsers */
+        .second::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for Firefox and IE/Edge */
+        .second {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="flex transition-all duration-300 ease-in-out">
-        <div class="first h-[100vh] w-[32vw] bg-black">
-            <div class="flex ml-[53%] w-fit p-3 rounded-full  hover:bg-neutral-900 hover:cursor-pointer transition">
-                <img src="svg/logo.svg" alt="logo" width="40">
-            </div>
-            <div class="flex flex-col gap-y-2 py-2 pl-[53%] ">
-
+<body class="bg-black text-white">
+    <div class="flex flex-col md:flex-row transition-all duration-300 ease-in-out">
+        <!-- First Column - Sidebar -->
+        <div class="first h-screen w-[30vw] bg-black flex-shrink-0 flex flex-col justify-between max-w-2xl mx-auto">
+            <div>
                 <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition ">
-                    <img src="svg/home.svg" alt="home" width="35">
-                    <span>Home</span>
+                    class="flex logo-container ml-[61%] w-fit p-3 rounded-full hover:bg-neutral-900 hover:cursor-pointer transition">
+                    <img src="svg/logo.svg" alt="logo" width="40">
                 </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
-                    <img src="svg/search.svg" alt="search" width="35">
-                    <span>Search</span>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/noti.svg" alt="notifications" width="35">
-                    <span>Notifications</span>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/mail.svg" alt="messages" width="35">
-                    <span>Messages</span>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/grok.svg" alt="grok" width="35">
-                    <span>Grok</span>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/bookmark.svg" alt="bookmark" width="35">
-                    <span>Bookmarks</span>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/job.svg" alt="jobs" width="35">
-                    <span>Jobs</span>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/commu.svg" alt="communities" width="35">
-                    <span>Communities</span>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/logo.svg" alt="premium" width="35">
-                    <span>Premium</span>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/verified.svg" alt="verified" width="35">
-                    <span>Verified</span>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/profile.svg" alt="profile" width="35">
-                    <span>Profile</span>
-                </div>
-                <div
-                    class="flex items-center gap-2  text-white opacity-80 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900  transition">
-                    <img src="svg/more.svg" alt="more" width="35">
-                    <span>More</span>
-                </div>
-            </div>
-            <div class="flex justify-end pr-13 pt-3">
-                <button
-                    class="bg-white  w-[40%] text-lg font-bold text-black  px-6 py-2 rounded-full hover:bg-zinc-300  transition hover:cursor-pointer">
-                    Post
-                </button>
-            </div>
-            <div class="flex text-white justify-end pr-3 pt-4">
-                <div
-                    class="flex items-center justify-between w-[45%] max-w-[22rem] gap-3 rounded-full pl-2 pr-4 py-2 hover:cursor-pointer hover:bg-neutral-900 transition">
-
-                    <!-- Left Side: Profile Image + Text -->
-                    <div class="flex items-center gap-3">
-                        <img src="img/profile-img.png" alt="verified" width="60">
-                        <span class="text-lg font-bold leading-tight ">
-                            <p>Flare</p>
-                            <p class="text-gray-500 font-semibold font-mono mt-1">@Flare3416</p>
-                        </span>
+                <div class="flex flex-col gap-y-2 py-2 pl-[61%]">
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/home.svg" alt="home" width="35">
+                        <span class="menu-text">Home</span>
                     </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/search.svg" alt="search" width="35">
+                        <span class="menu-text">Search</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/noti.svg" alt="notifications" width="35">
+                        <span class="menu-text">Notifications</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/mail.svg" alt="messages" width="35">
+                        <span class="menu-text">Messages</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/grok.svg" alt="grok" width="35">
+                        <span class="menu-text">Grok</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/bookmark.svg" alt="bookmark" width="35">
+                        <span class="menu-text">Bookmarks</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/job.svg" alt="jobs" width="35">
+                        <span class="menu-text">Jobs</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/commu.svg" alt="communities" width="35">
+                        <span class="menu-text">Communities</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/logo.svg" alt="premium" width="35">
+                        <span class="menu-text">Premium</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/verified.svg" alt="verified" width="35">
+                        <span class="menu-text">Verified</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/profile.svg" alt="profile" width="35">
+                        <span class="menu-text">Profile</span>
+                    </div>
+                    <div
+                        class="flex items-center menu-item gap-2 text-white opacity-90 hover:cursor-pointer w-fit rounded-full pl-3 pr-8 py-2 hover:bg-neutral-900 transition">
+                        <img src="svg/more.svg" alt="more" width="35">
+                        <span class="menu-text">More</span>
+                    </div>
+                </div>
+            </div>
 
-                    <!-- Right Side: Dot Menu -->
-                    <img src="svg/dot.svg" alt="dot" width="20">
+            <div>
+                <div class="flex justify-end post-button-container pr-14 pt-3">
+                    <button
+                        class="bg-white post-button w-[35%] text-lg font-bold text-black px-6 py-2 rounded-full hover:bg-zinc-300 transition hover:cursor-pointer">
+                        <span class="post-button-text">Post</span>
+                        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M8.8 7.2H5.6V3.9c0-.4-.3-.8-.8-.8s-.7.4-.7.8v3.3H.8c-.4 0-.8.3-.8.8s.3.8.8.8h3.3v3.3c0 .4.3.8.8.8s.8-.3.8-.8V8.7H9c.4 0 .8-.3.8-.8s-.5-.7-1-.7zm15-4.9v-.1h-.1c-.1 0-9.2 1.2-14.4 11.7-3.8 7.6-3.6 9.9-3.3 9.9.3.1 3.4-6.5 6.7-9.2 5.2-1.1 6.6-3.6 6.6-3.6s-1.5.2-2.1.2c-.8 0-1.4-.2-1.7-.3 1.3-1.2 2.4-1.5 3.5-1.7.9-.2 1.8-.4 3-1.2 2.2-1.6 1.9-5.5 1.8-5.7z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex text-white justify-end profile-container pr-6 pt-4 pb-4">
+                    <div
+                        class="flex items-center justify-between profile-info w-56 gap-3 rounded-full pl-2 pr-4 py-2 hover:cursor-pointer hover:bg-neutral-900 transition">
+                        <div class="flex items-center gap-3">
+                            <img src="img/profile-img.png" alt="verified" width="40" class="rounded-full">
+                            <span class="text-lg font-bold leading-tight profile-details">
+                                <p>Flare</p>
+                                <p class="text-gray-500 font-semibold font-mono mt-1">@Flare3416</p>
+                            </span>
+                        </div>
+                        <img src="svg/dot.svg" alt="dot" width="20" class="profile-dot">
+                    </div>
+                </div>
+            </div>
 
+            <!-- Mobile bottom menu -->
+            <div class="mobile-menu hidden items-center border-t border-neutral-800 py-2">
+                <div class="p-2 rounded-full hover:bg-neutral-800">
+                    <img src="svg/home.svg" alt="home" width="30">
+                </div>
+                <div class="p-2 rounded-full hover:bg-neutral-800">
+                    <img src="svg/search.svg" alt="search" width="30">
+                </div>
+                <div class="p-2 rounded-full hover:bg-neutral-800">
+                    <img src="svg/noti.svg" alt="notifications" width="30">
+                </div>
+                <div class="p-2 rounded-full hover:bg-neutral-800">
+                    <img src="svg/mail.svg" alt="messages" width="30">
                 </div>
             </div>
         </div>
-        <div class="second h-[100vh] w-[35vw] bg-black border-l-2 border-neutral-600">b</div>
-        <div class="third h-[100vh] w-[33vw] bg-black border-l-2 border-neutral-600 ">
+
+        <!-- Second Column - Main Content -->
+        <div
+            class="second h-screen w-[600px] flex-grow text-white bg-black border-l border-neutral-600 overflow-y-auto">
+            <div class="sticky top-0 bg-black/60 backdrop-blur-md z-50 border-b border-neutral-700">
+                <div class="grid grid-cols-3 h-14 text-center items-center">
+                    <div
+                        class="w-full h-full font-semibold text-gray-400 hover:text-white hover:bg-neutral-900 transition flex items-center justify-center cursor-pointer">
+                        For you
+                    </div>
+                    <div
+                        class="w-full h-full font-semibold text-gray-400 hover:text-white hover:bg-neutral-900 transition flex items-center justify-center cursor-pointer">
+                        Following
+                    </div>
+                    <div
+                        class="w-full h-full font-semibold text-gray-400 hover:text-white hover:bg-neutral-900 transition flex items-center justify-center cursor-pointer">
+                        The Jungle
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Post -->
+            <div class="w-full p-4 border-b border-neutral-700">
+                <div class="flex items-center">
+                    <img src="img/profile-img.png" alt="" width="50" class="rounded-full">
+                    <textarea placeholder="What's happening?" rows="2"
+                        class="ml-4 w-full bg-transparent resize-none text-xl text-white placeholder-gray-400 font-light focus:outline-none"></textarea>
+                </div>
+                <div class="flex items-center pt-4 px-3 gap-x-4">
+                    <img class="cursor-pointer hover:scale-110 transition duration-200 hover:brightness-150"
+                        src="svg/gallery.svg" alt="">
+                    <img class="cursor-pointer hover:scale-110 transition duration-200 hover:brightness-150"
+                        src="svg/gif.svg" alt="">
+                    <img class="cursor-pointer hover:scale-110 transition duration-200 hover:brightness-150"
+                        src="svg/grokblue.svg" alt="">
+                    <img class="cursor-pointer hover:scale-110 transition duration-200 hover:brightness-150"
+                        src="svg/pole.svg" alt="">
+                    <img class="cursor-pointer hover:scale-110 transition duration-200 hover:brightness-150"
+                        src="svg/smile.svg" alt="">
+                    <img class="cursor-pointer hover:scale-110 transition duration-200 hover:brightness-150"
+                        src="svg/calendar.svg" alt="">
+                    <img class="cursor-pointer hover:scale-110 transition duration-200 hover:brightness-150"
+                        src="svg/location.svg" alt="">
+                    <div class="ml-auto cursor-pointer hover:scale-110 transition duration-200 hover:brightness-150">
+                        <button class="bg-zinc-800 rounded-full py-2 px-6">Post</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posts -->
+            <!-- Post 1 -->
+            <div class="w-full bg-black text-white p-4 border-b border-neutral-700 space-y-3 font-sans">
+                <!-- User Header -->
+                <div class="flex items-start gap-3">
+                    <img src="img/profile-img.png" alt="User" class="w-12 rounded-full">
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold hover:underline cursor-pointer">Flare</span>
+                                <span class="text-neutral-400">@Flare3416 · 23h</span>
+                            </div>
+                            <span class="text-neutral-500 cursor-pointer hover:text-white">•••</span>
+                        </div>
+                        <p class="mt-1">LMAO</p>
+                    </div>
+                </div>
+
+                <!-- Image Post -->
+                <div
+                    class="rounded-xl overflow-hidden border border-neutral-800 mx-4 md:mx-8 lg:mx-12 flex justify-center">
+                    <video controls class="w-full rounded-xl">
+                        <source src="vid/kamehameha.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <!-- Post Interactions -->
+                <div class="flex justify-between text-sm text-neutral-500 p-1 post-actions mx-16">
+                    <!-- Comment -->
+                    <div class="flex items-center gap-2 hover:text-sky-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z" />
+                        </svg>
+                        <span>52</span>
+                    </div>
+
+                    <!-- Retweet -->
+                    <div class="flex items-center gap-2 hover:text-green-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z" />
+                        </svg>
+                        <span>263</span>
+                    </div>
+
+                    <!-- Like -->
+                    <div class="flex items-center gap-2 hover:text-red-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z" />
+                        </svg>
+                        <span>8.2K</span>
+                    </div>
+
+                    <!-- Views -->
+                    <div class="flex items-center gap-2 hover:text-neutral-300 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z" />
+                        </svg>
+                        <span>407K</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="w-full bg-black text-white p-4 border-b border-neutral-700 space-y-3 font-sans">
+                <!-- User Header -->
+                <div class="flex items-start gap-3">
+                    <img src="img/hideokojima.png" alt="User" class="w-12 rounded-full">
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold hover:underline cursor-pointer">Hideo Kojima</span>
+                                <span class="text-neutral-400">@HIDEO_KOJIMA_EN · 5h</span>
+                            </div>
+                            <span class="text-neutral-500 cursor-pointer hover:text-white">•••</span>
+                        </div>
+                        <p class="mt-1">Working on a new project. Can't say much yet, but it's going to be something
+                            special. #GameDev</p>
+                    </div>
+                </div>
+
+                <!-- Image Post -->
+                <div class="rounded-xl overflow-hidden border border-neutral-800 mx-16 flex justify-center">
+                    <img src="img/hideogame.jpg" alt="Post Image"
+                        class="w-full max-w-[500px] min-w-[250px] max-h-[600px] min-h-[600px] object-cover rounded-xl">
+                </div>
+
+                <!-- Post Interactions -->
+                <div class="flex justify-between text-sm text-neutral-500 p-1 post-actions mx-16">
+                    <!-- Comment -->
+                    <div class="flex items-center gap-2 hover:text-sky-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z" />
+                        </svg>
+                        <span>1.2K</span>
+                    </div>
+
+                    <!-- Retweet -->
+                    <div class="flex items-center gap-2 hover:text-green-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z" />
+                        </svg>
+                        <span>3.5K</span>
+                    </div>
+
+                    <!-- Like -->
+                    <div class="flex items-center gap-2 hover:text-red-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z" />
+                        </svg>
+                        <span>24.7K</span>
+                    </div>
+
+                    <!-- Views -->
+                    <div class="flex items-center gap-2 hover:text-neutral-300 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z" />
+                        </svg>
+                        <span>892K</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="w-full bg-black text-white p-4 border-b border-neutral-700 space-y-3 font-sans">
+                <!-- User Header -->
+                <div class="flex items-start gap-3">
+                    <img src="img/rockstar.png" alt="User" class="w-12 rounded-full">
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold hover:underline cursor-pointer">Rockstar Games</span>
+                                <span class="text-neutral-400">@RockstarGames · 2d</span>
+                            </div>
+                            <span class="text-neutral-500 cursor-pointer hover:text-white">•••</span>
+                        </div>
+                        <p class="mt-1">The official trailer for Grand Theft Auto VI has arrived. Watch now:</p>
+                    </div>
+                </div>
+
+                <!-- Image Post -->
+                <div class="rounded-xl overflow-hidden border border-neutral-800 mx-16 flex justify-center">
+                    <img src="img/GTA.jpg" alt="Post Image"
+                        class="w-full max-w-[500px] min-w-[250px] max-h-[600px] min-h-[600px] object-cover rounded-xl">
+                </div>
+
+
+                <!-- Post Interactions -->
+                <div class="flex justify-between text-sm text-neutral-500 p-1 post-actions mx-16">
+                    <!-- Comment -->
+                    <div class="flex items-center gap-2 hover:text-sky-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z" />
+                        </svg>
+                        <span>42.5K</span>
+                    </div>
+
+                    <!-- Retweet -->
+                    <div class="flex items-center gap-2 hover:text-green-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z" />
+                        </svg>
+                        <span>156K</span>
+                    </div>
+
+                    <!-- Like -->
+                    <div class="flex items-center gap-2 hover:text-red-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z" />
+                        </svg>
+                        <span>1.2M</span>
+                    </div>
+
+                    <!-- Views -->
+                    <div class="flex items-center gap-2 hover:text-neutral-300 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z" />
+                        </svg>
+                        <span>32.7M</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 4 -->
+            <div class="w-full bg-black text-white p-4 border-b border-neutral-700 space-y-3 font-sans">
+                <!-- User Header -->
+                <div class="flex items-start gap-3">
+                    <img src="img/profile-img.png" alt="User" class="w-12 rounded-full">
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold hover:underline cursor-pointer">Flare</span>
+                                <span class="text-neutral-400">@Flare3416 · 23h</span>
+                            </div>
+                            <span class="text-neutral-500 cursor-pointer hover:text-white">•••</span>
+                        </div>
+                        <p class="mt-1">Soup Store</p>
+                    </div>
+                </div>
+
+                <!-- Image Post -->
+                <div
+                    class="rounded-xl overflow-hidden border border-neutral-800 mx-4 md:mx-8 lg:mx-12 flex justify-center">
+                    <video controls class="w-full rounded-xl">
+                        <source src="vid/soupstore.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <!-- Post Interactions -->
+                <div class="flex justify-between text-sm text-neutral-500 p-1 post-actions mx-16">
+                    <!-- Comment -->
+                    <div class="flex items-center gap-2 hover:text-sky-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z" />
+                        </svg>
+                        <span>101</span>
+                    </div>
+
+                    <!-- Retweet -->
+                    <div class="flex items-center gap-2 hover:text-green-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z" />
+                        </svg>
+                        <span>316</span>
+                    </div>
+
+                    <!-- Like -->
+                    <div class="flex items-center gap-2 hover:text-red-500 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z" />
+                        </svg>
+                        <span>20.2K</span>
+                    </div>
+
+                    <!-- Views -->
+                    <div class="flex items-center gap-2 hover:text-neutral-300 cursor-pointer transition">
+                        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+                            <path
+                                d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z" />
+                        </svg>
+                        <span>997K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="third h-[100vh] w-[36vw] bg-black border-l border-neutral-600 ">
             <div class="search p-4 ">
                 <input type="text" placeholder="Search"
-                    class="w-[60%] text-gray-200 font-light placeholder-white pl-5 px-4 py-2 rounded-full border border-neutral-600 ">
+                    class="w-[60%] bg-black text-gray-200 font-light placeholder-white pl-5 px-4 py-2 rounded-full border border-neutral-600  focus:outline-none focus:border-blue-500">
             </div>
             <div class="p-4  text-white opacity-90">
-                <div class="w-[60%] pl-5 px-4 py-2  border border-neutral-600 rounded-2xl flex flex-col gap-y-5">
+                <div class="w-[60%] pl-5 px-4 py-2  border border-neutral-600 rounded-2xl flex flex-col gap-y-2">
                     <div class="font-extrabold text-xl">Whats Happening</div>
                     <div
                         class="flex justify-between items-center py-3 pr-3 rounded-xl cursor-pointer hover:bg-neutral-950 transition-colors duration-200">
                         <div class="flex flex-col">
                             <p class="font-light text-gray-200 text-sm">Trending in Gaming</p>
                             <p class="text-lg font-semibold">GTA 6 Trailer</p>
+                            <p class="font-light text-gray-200 text-xs">657K posts</p>
                         </div>
                         <img src="svg/dot.svg" alt="">
                     </div>
@@ -123,6 +469,7 @@
                         <div class="flex flex-col">
                             <p class="font-light text-gray-200 text-sm">Trending in Music</p>
                             <p class="text-lg font-semibold">Circus Maximus Tour</p>
+                            <p class="font-light text-gray-200 text-xs">420K posts</p>
                         </div>
                         <img src="svg/dot.svg" alt="">
                     </div>
@@ -131,6 +478,7 @@
                         <div class="flex flex-col">
                             <p class="font-light text-gray-200 text-sm">Trending in Tech</p>
                             <p class="text-lg font-semibold">Apple Intelligence</p>
+                            <p class="font-light text-gray-200 text-xs">111K posts</p>
                         </div>
                         <img src="svg/dot.svg" alt="">
                     </div>
@@ -139,6 +487,7 @@
                         <div class="flex flex-col">
                             <p class="font-light text-gray-200 text-sm">Trending in Entertainment</p>
                             <p class="text-lg font-semibold">House of the Dragon</p>
+                            <p class="font-light text-gray-200 text-xs">75K posts</p>
                         </div>
                         <img src="svg/dot.svg" alt="">
                     </div>
@@ -147,6 +496,34 @@
                         <p>Show More</p>
                     </div>
                 </div>
+
+
+                <div class="w-[60%] pl-5 px-4 py-3 mt-2 border border-neutral-600 rounded-2xl flex flex-col gap-y-3">
+                    <div class="font-extrabold text-xl">Who to follow</div>
+                    <div class="flex items-center gap-3 hover:cursor-pointer">
+                        <img src="img/hideokojima.png" alt="verified" width="50">
+                        <span class=" font-semibold leading-tight ">
+                            <p>Hideo Kojima</p>
+                            <p class="text-gray-500 font-semibold font-mono mt-1">@HIDEO_KOJIMA_EN</p>
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3 hover:cursor-pointer">
+                        <img src="img/rockstar.png" alt="verified" width="50">
+                        <span class="g font-bold leading-tight ">
+                            <p>Rockstar Games</p>
+                            <p class="text-gray-500 font-semibold font-mono mt-1">@RockstarGames</p>
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3 hover:cursor-pointer">
+                        <img src="img/openAI.png" alt="verified" width="50">
+                        <span class="font-bold leading-tight ">
+                            <p>OpenAI</p>
+                            <p class="text-gray-500 font-semibold font-mono mt-1">@OpenAI</p>
+                        </span>
+                    </div>
+                </div>
+
+
                 <div class="text-[13px] text-neutral-600 flex flex-wrap gap-x-2 gap-y-1 mt-4 px-4 font-medium">
                     <a href="#" class="hover:underline">Terms of Service</a>
                     <span>|</span>
@@ -154,7 +531,7 @@
                     <span>|</span>
                     <a href="#" class="hover:underline">Cookie Policy</a>
                     <span>|</span>
-                    
+
                 </div>
                 <div class="text-[13px] text-neutral-600 flex flex-wrap gap-x-2 gap-y-1 mt-4 px-4 font-medium">
                     <a href="#" class="hover:underline">More</a>
